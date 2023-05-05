@@ -1,5 +1,6 @@
 package com.example.my_clg.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,7 +9,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,10 +49,16 @@ fun arrange_Grid_sem(navController: NavController, screen :String, data_list :Li
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Semester(navController :NavController ,b_id :Int){
     val sem :List<String> = listOf("1st year","III sem","IV sem","V sem","VI sem","ECET")
-    arrange_Grid_sem(navController = navController,  screen = "sub", data_list = sem, b_id )
+    Scaffold(
+        topBar = { topBar(navController = navController, text = "Semester")}
+    ) {
+        arrange_Grid_sem(navController = navController,  screen = "sub", data_list = sem, b_id )
+    }
 
 
 }

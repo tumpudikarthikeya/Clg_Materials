@@ -1,5 +1,6 @@
 package com.example.my_clg.screens
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -9,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,9 +39,14 @@ fun Decision_disp(context :Context,name :String, link :String) {
 
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Decision(navController: NavController, b_id :Int ,s_id :Int , sub_id :Int) {
     val context = LocalContext.current
+    Scaffold(
+        topBar = { topBar(navController = navController, text = "Materials") }
+    ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -46,12 +54,23 @@ fun Decision(navController: NavController, b_id :Int ,s_id :Int , sub_id :Int) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = AllData[b_id]!![s_id]!![sub_id]!!.SubName, fontSize = 30.sp,
+        Text(
+            text = AllData[b_id]!![s_id]!![sub_id]!!.SubName, fontSize = 30.sp,
             modifier = Modifier.padding(bottom = 16.dp),
-            textAlign = TextAlign.Center)
-        Decision_disp(context = context, name = "Materials", link ="https://drive.google.com/drive/folders/${AllData[b_id]!![s_id]!![sub_id]!!.mat_link}" )
-        Decision_disp(context = context, name = "Previous Papers", link ="https://drive.google.com/drive/folders/${AllData[b_id]!![s_id]!![sub_id]!!.pqp_link}" )
+            textAlign = TextAlign.Center
+        )
+        Decision_disp(
+            context = context,
+            name = "Materials",
+            link = "https://drive.google.com/drive/folders/${AllData[b_id]!![s_id]!![sub_id]!!.mat_link}"
+        )
+        Decision_disp(
+            context = context,
+            name = "Previous Papers",
+            link = "https://drive.google.com/drive/folders/${AllData[b_id]!![s_id]!![sub_id]!!.pqp_link}"
+        )
 
     }
+}
 
 }
