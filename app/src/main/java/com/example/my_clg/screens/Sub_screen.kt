@@ -2,6 +2,7 @@ package com.example.my_clg.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,22 +39,32 @@ fun arrange_Grid_sem_Element(navController: NavController,b_id: Int,s_id: Int,su
 
 @Composable
 fun arrange_Grid_sub(navController: NavController,b_id: Int,s_id: Int) {
-    val sub_list = AllData[b_id]!![s_id]
-    Surface(modifier = Modifier.padding(horizontal = 8.dp)) {
-        LazyVerticalGrid(columns = GridCells.Fixed(2),
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            content = {
-                sub_list?.let {
-                    items(it.size) { index ->
-                        arrange_Grid_sem_Element(
-                            navController = navController,
-                            b_id,
-                            s_id,
-                            sub_id = index)
+    if (s_id > 4 ) {
+        Underdev()
+    }
+    else {
+        val sub_list = AllData[b_id]!![s_id]
+        Surface(modifier = Modifier.padding(horizontal = 8.dp)) {
+            LazyVerticalGrid(columns = GridCells.Fixed(2),
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                content = {
+                    if (s_id > 4) {
+
+                    } else {
+                        sub_list?.let {
+                            items(it.size) { index ->
+                                arrange_Grid_sem_Element(
+                                    navController = navController,
+                                    b_id,
+                                    s_id,
+                                    sub_id = index
+                                )
+                            }
+                        }
                     }
-                }
-            })
+                })
+        }
     }
 }
 

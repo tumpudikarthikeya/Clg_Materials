@@ -7,8 +7,7 @@ val branches= mapOf(1 to "CME",
                                 2 to "ECE",
                                 3 to "EEE",
                                 4 to "MECH",
-                                5 to "CIVIL",
-                                6 to "AI & ML")
+                                5 to "CIVIL")
 
 val commonSubjects = mapOf( "eng" to Diploma_Subject("English","1CElnUVTXXN7xJceVKFeooG7uKfpVlw9U","1cK3aMhl6F8VKNR9pgbo7iiKnh78lGLn1"),
     "math-1" to Diploma_Subject("Engg \nMathematics –I","1lNNqPIprjb0VB3sY0eUbiU-tUkh9NwBF","1uewNF1adUWrR1yn_zZ6LVV7UVjNyPdPT"),
