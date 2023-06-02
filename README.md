@@ -9,4 +9,8 @@
 [click me to download]()
 ## Preview
 ![stydyhub1](https://github.com/tumpudikarthikeya/Clg_Materials/assets/120441030/904bbb70-1d4d-42f9-a664-ae0e04f7ca34)
-
+## Contact Me
+| Social  | 
+| ------------- | 
+| [Insta](https://www.instagram.com/bhanu._.karthikeya/ ) |
+|  [LinkedIn](https://www.linkedin.com/in/b-v-n-s-s-karthikeya-tumpudi-58b013249/) |
